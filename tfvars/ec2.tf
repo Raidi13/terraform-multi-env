@@ -1,7 +1,5 @@
-#ec2 instance configuration 
 resource "aws_instance" "expense" {
   for_each = var.instances                # this variable is map 
- # for each will give us a special variable with name each
   ami           = "ami-09c813fb71547fc4f" #this AMI ID may change over the time
   instance_type = each.value
   # security group reference
@@ -14,11 +12,9 @@ resource "aws_instance" "expense" {
            }
     )
 }
-
-
 # security group configuration
 resource "aws_security_group" "allow_ssh_terraform" {
-  name        = "allow_sshh_${var.environment}"
+  name        = "allow_ssh_${var.environment}"
   description = "Allow port number 22 for SSH access"
 
   # Egress - allow all outgoing traffic
@@ -43,7 +39,7 @@ resource "aws_security_group" "allow_ssh_terraform" {
     var.comman_tags,
     var.tags,
     {
-      Name = "allow_sshh-${var.environment}"
+      Name = "allow_ssh-${var.environment}"
     }
   )
 }

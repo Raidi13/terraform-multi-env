@@ -17,4 +17,5 @@
     type = map
 }
  variable "environment" {
+     
 }
