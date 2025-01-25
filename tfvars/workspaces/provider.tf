@@ -18,3 +18,8 @@ provider "aws" {
   # Configuration options
   region = "us-east-1"
 }
+
+
+# create new workspace dev&prod
+# terraform workspace new dev --> same as prod
+# this will creat workspace in s3 bucket
